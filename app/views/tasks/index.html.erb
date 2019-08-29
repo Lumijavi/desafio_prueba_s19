@@ -1,2 +1,14 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<table>
+  <th>photo</th>
+  <th>name</th>
+  <th>description</th>
+  <th>updated_at</th>
+  <% @tasks.each do |task| %>
+    <tr>
+      <td><%= image_tag task.photo, style: "max-width:400px" %></td>
+      <td><%= task.name %></td>
+      <td><%= task.description %></td>
+      <td><%= task.updated_at %></td>
+    </tr>
+  <% end %>
+</table>
