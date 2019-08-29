@@ -1,14 +1,12 @@
-<table class="table">
-  <th>photo</th>
-  <th>name</th>
-  <th>description</th>
-  <th>updated_at</th>
+<div class="card-columns">
   <% @tasks.each do |task| %>
-    <tr>
-      <td><%= image_tag task.photo, style: "max-width:400px" %></td>
-      <td><%= task.name %></td>
-      <td><%= task.description %></td>
-      <td><%= task.updated_at %></td>
-    </tr>
+    <div class="card">
+      <%= image_tag task.photo, class: "card-img-top" %>
+      <div class="card-body">
+        <h5 class="card-title"><%= task.name %></h5>
+        <p class="card-text"><%= task.description %></p>
+        <small class="text-muted">Last updated <%= time_ago_in_words(task.updated_at)%> ago</small>
+      </div>
+    </div>
   <% end %>
-</table>
+</div>
