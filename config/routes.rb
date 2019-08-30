@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :tasks, only: :index
+  resources :tasks, only: :index do
+    resources :completed_tasks, only: :create
+  end
 
   devise_for :users
 
