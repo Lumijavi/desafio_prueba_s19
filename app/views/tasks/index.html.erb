@@ -1,10 +1,10 @@
 <div class="card-columns">
   <% @tasks.each do |task| %>
     <div class="card">
-      <% if user_signed_in? %>
-        <%= image_tag task.photo, class: "card-img-top filtered" %>
-      <% else %>
+      <% if task.completed_tasks.exists? %>
         <%= image_tag task.photo, class: "card-img-top" %>
+      <% else %>
+        <%= image_tag task.photo, class: "card-img-top filtered" %>
       <% end %>
       <div class="card-body">
         <h5 class="card-title"><%= task.name %></h5>
@@ -13,7 +13,7 @@
         <br>
         <div class="mt-3">
           <%= link_to "Listo", task_completed_tasks_path(task), method: :post, class: 'btn btn-primary' %>
-          <%= link_to "NO Listo", '#' , class: 'btn btn-danger' %>
+          <%= link_to "NO Listo", task_completed_task_path(task, current_user), method: :delete , class: 'btn btn-danger' %>
         </div>
       </div>
     </div>

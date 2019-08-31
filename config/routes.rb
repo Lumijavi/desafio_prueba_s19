@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :tasks, only: :index do
-    resources :completed_tasks, only: :create
+    resources :completed_tasks, only: [:create, :destroy]
   end
 
   devise_for :users
