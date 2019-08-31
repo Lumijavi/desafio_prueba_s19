@@ -17,7 +17,9 @@
       </thead>
       <tbody>
         <% @top_five.each do |u|%>
-          <tr>
+          <tr class="row">
+            <td class="col-3"><%= User.find(u).photo ? image_tag(User.find(u).photo, :class => "img-fluid") : image_tag("https://image.flaticon.com/icons/png/512/97/97895.png", :class => "img-fluid")%></td>
+            <td class="col"><%= User.find(u).name ? User.find(u).name : "-"%></td>
             <td><%= User.find(u).email %></td>
           </tr>
         <% end %>
