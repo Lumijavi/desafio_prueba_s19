@@ -6,12 +6,38 @@
         <h5 class="card-title"><%= @task.name %></h5>
         <p class="card-text"><%= @task.description %></p>
       </div>
-    </div>    
+    </div>
   </div>
   <div class="col-4">
-
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Los primeros 5 que completaron la tarea</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @top_five.each do |u|%>
+          <tr>
+            <td><%= User.find(u).email %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
   <div class="col-4">
-
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Quienes han completado esta tarea</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @completed_task_users_id.each do |u|%>
+          <tr>
+            <td><%= User.find(u).email %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
